@@ -1,8 +1,8 @@
-# Olá mundo!
->Este é o meu primeiro projeto em Go!
-## Objetivos
-* Explorar a sintaxe da linguagem;
-* Praticar o conceito de ponteiros;
-* Criar uma estrutura bem organizada para o projeto;
-* Implementar funcionaldiade de anotações;
+# Hello world!
+>This is my first project using Go language, lets Go!
+## (Go)als
+* Explore Go's features and sintax;
+* Practice using pointers;
+* Create well-organizated folders structure;
+* Implement notations functionality;
 

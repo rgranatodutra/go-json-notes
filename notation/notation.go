@@ -24,7 +24,7 @@ func New(title, text string) *Notation {
 	}
 }
 
-func (n *Notation) Edit(txt string) {
+func (n *Notation) ChangeText(txt string) {
 	n.lastUpdatedAt = time.Now().Unix()
 	n.text = txt
 }

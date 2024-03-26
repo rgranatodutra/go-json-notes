@@ -1,40 +1,45 @@
-package notation
+package notes
 
 import (
+	"errors"
 	"fmt"
 	"time"
 
 	"github.com/google/uuid"
 )
 
-type Notation struct {
+type Note struct {
 	id            string
 	title         string
-	text          string
+	content       string
 	createdAt     int64
 	lastUpdatedAt int64
 }
 
-func New(title, text string) *Notation {
-	return &Notation{
+func New(title, content string) (Note, error) {
+	if title == "" || content == "" {
+		return Note{}, errors.New("can't create empty title or content")
+	}
+
+	return Note{
 		id:        uuid.NewString(),
 		title:     title,
-		text:      text,
+		content:   content,
 		createdAt: time.Now().Unix(),
-	}
+	}, nil
 }
 
-func (n *Notation) ChangeText(txt string) {
-	n.lastUpdatedAt = time.Now().Unix()
-	n.text = txt
-}
-
-func (n *Notation) ChangeTitle(title string) {
+func (n *Note) ChangeTitle(title string) {
 	n.lastUpdatedAt = time.Now().Unix()
 	n.title = title
 }
 
-func (n *Notation) Print() {
+func (n *Note) ChangeContent(newContent string) {
+	n.lastUpdatedAt = time.Now().Unix()
+	n.content = newContent
+}
+
+func (n *Note) Print() {
 	createdAt := time.Unix(n.createdAt, 0).Format("02/01/2006 15:04:05")
 
 	fmt.Printf("\nTitle             %s\n", n.title)
@@ -45,5 +50,5 @@ func (n *Notation) Print() {
 		fmt.Printf("Last updated at   %s\n", lastUpdatedAt)
 	}
 
-	fmt.Printf("\n\"%s\"\n", n.text)
+	fmt.Printf("\n\"%s\"\n", n.content)
 }

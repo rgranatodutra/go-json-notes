@@ -80,7 +80,7 @@ func (n *Note) Save(savePath string) error {
 	return nil
 }
 
-func OpenNote(filePath string) (Note, error) {
+func Open(filePath string) (Note, error) {
 	file, err := os.Open(filePath)
 	if err != nil {
 		return Note{}, fmt.Errorf("erro ao abrir o arquivo: %w", err)

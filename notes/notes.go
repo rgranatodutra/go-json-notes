@@ -87,7 +87,6 @@ func OpenNote(filePath string) (Note, error) {
 	}
 	defer file.Close()
 
-	// Decodificar o JSON
 	var note Note
 	decoder := json.NewDecoder(file)
 	if err := decoder.Decode(&note); err != nil {

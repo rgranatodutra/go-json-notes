@@ -9,6 +9,10 @@ import (
 const notesPath string = "C:\\Users\\rgran\\OneDrive\\Área de Trabalho\\notes"
 const notesExt string = ".jn"
 
+func main() {
+	startApp()
+}
+
 func startApp() {
 	for {
 		fmt.Println("Main menu:")

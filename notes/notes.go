@@ -54,7 +54,7 @@ func (n *Note) Print() {
 		fmt.Printf("Last updated at   %s\n", lastUpdatedAt)
 	}
 
-	fmt.Printf("\n\"%s\"\n", n.Content)
+	fmt.Printf("\n\"%s\"\n\n", n.Content)
 }
 
 func (n *Note) Save(savePath string) error {

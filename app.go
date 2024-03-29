@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"go-json-notes/notes"
 	"go-json-notes/utils"
 )
 
@@ -19,7 +20,7 @@ func startApp() {
 
 		switch chosenOption {
 		case "1":
-			//createNewNote()
+			createNewNote()
 		case "2":
 			//listSavedNotes()
 		case "0":
@@ -29,4 +30,17 @@ func startApp() {
 			fmt.Println("Invalid option. Please try again.")
 		}
 	}
+}
+
+func createNewNote() {
+	title := utils.GetUserInput("Enter note title: ")
+	content := utils.GetUserInput("Enter note content: ")
+
+	newNote, err := notes.New(title, content)
+	utils.HandleError(err)
+
+	err = newNote.Save(notesPath)
+	utils.HandleError(err)
+
+	fmt.Printf("Succesful created: %s\n", title)
 }
